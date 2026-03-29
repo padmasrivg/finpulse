@@ -297,7 +297,10 @@ def get_categories():
         ],
     }
     return jsonify(categories)
-
+@app.route('/')
+def index():
+    return
+render_templates('index.html')    
 
 if __name__ == "__main__":
     print("🚀 FinPulse API starting on http://localhost:5000")
