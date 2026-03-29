@@ -1,0 +1,8 @@
+flask
+pandas
+numpy
+scikit-learn
+matplotlib
+pymongo
+flask-cors
+python-dotenv

@@ -1,0 +1,46 @@
+company_type,category,amount,description,vendor,date
+edtech,marketing,48000,Google Ads — Q1 Campaign,Google,2024-01-05
+edtech,cloud,22000,AWS EC2 Instances — Jan,Amazon Web Services,2024-01-08
+edtech,instructor,35000,Python Bootcamp Instructor Fee,Rahul Sharma,2024-01-10
+edtech,content,18000,Video Production — Module 3,StudioX Media,2024-01-12
+edtech,marketing,52000,Meta Ads — Lead Gen Campaign,Meta,2024-01-18
+edtech,cloud,19500,AWS S3 & CloudFront — Jan,Amazon Web Services,2024-01-20
+edtech,instructor,28000,Data Science Instructor Fee,Priya Nair,2024-01-22
+edtech,content,14500,Course Thumbnail Design,DesignHub,2024-01-25
+edtech,marketing,61000,LinkedIn Ads — B2B Campaign,LinkedIn,2024-02-03
+edtech,cloud,27000,AWS EC2 Scale-Up — Feb,Amazon Web Services,2024-02-06
+edtech,instructor,42000,AI/ML Course Instructor,Dr. Anand Kumar,2024-02-10
+edtech,content,21000,Animated Explainer Videos,Motion Arts,2024-02-14
+edtech,marketing,38000,SEO & Content Marketing,RankFirst Agency,2024-02-18
+edtech,cloud,31000,Database & Redis Cache — Feb,Amazon Web Services,2024-02-20
+edtech,instructor,33000,Web Dev Instructor Fee,Sneha Patel,2024-02-24
+edtech,content,16000,Podcast Production — 4 Episodes,SoundStudio,2024-02-26
+edtech,marketing,72000,YouTube Ads — Product Launch,Google,2024-03-02
+edtech,cloud,145000,Sudden Cloud Outage Recovery,Amazon Web Services,2024-03-05
+edtech,instructor,55000,Full-Stack Dev — 2 Instructors,Dev Academy,2024-03-08
+edtech,content,25000,Live Workshop Recording,StreamPro,2024-03-12
+edtech,marketing,44000,Influencer Marketing,TechInfluencer Co,2024-03-15
+edtech,cloud,29000,CloudFront CDN — Mar,Amazon Web Services,2024-03-18
+edtech,instructor,38000,DevOps Instructor Fee,Kumar Systems,2024-03-22
+edtech,content,19000,E-book Production,WordCraft Studio,2024-03-25
+professional,travel,35000,Client Visit — Mumbai,IndiGo Airlines,2024-01-07
+professional,salary,320000,January Salaries — 8 Employees,Payroll,2024-01-31
+professional,software,12000,Salesforce CRM — Monthly,Salesforce,2024-01-05
+professional,office,18000,Office Rent — Jan,Urban Property,2024-01-01
+professional,travel,28000,Conference — Delhi,Air India,2024-01-15
+professional,software,8500,Slack & Zoom Licences,Atlassian,2024-01-10
+professional,office,5500,Office Supplies & Pantry,Staples,2024-01-20
+professional,travel,92000,International Client Trip — Singapore,Singapore Airlines,2024-02-05
+professional,salary,335000,February Salaries,Payroll,2024-02-28
+professional,software,14000,Jira & Confluence — Feb,Atlassian,2024-02-08
+professional,office,18000,Office Rent — Feb,Urban Property,2024-02-01
+professional,travel,41000,Client Workshop — Bangalore,IndiGo Airlines,2024-02-12
+professional,software,9000,Adobe Creative Suite,Adobe,2024-02-15
+professional,office,7200,Internet & Utilities — Feb,BSNL,2024-02-22
+professional,travel,38000,Project Kick-off — Chennai,IndiGo Airlines,2024-03-04
+professional,salary,341000,March Salaries,Payroll,2024-03-31
+professional,software,11500,GitHub Enterprise,GitHub,2024-03-06
+professional,office,18000,Office Rent — Mar,Urban Property,2024-03-01
+professional,travel,65000,Client Presentation — Hyderabad,Taj Hotels,2024-03-10
+professional,software,16000,Power BI & Analytics Suite,Microsoft,2024-03-14
+professional,office,9500,Furniture & Equipment,IKEA Business,2024-03-20

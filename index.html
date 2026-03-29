@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinPulse — AI Expense Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ── GRID OVERLAY ── -->
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ── NAVBAR ── -->
+<nav class="fp-navbar">
+  <div class="fp-navbar__inner">
+    <a class="fp-logo" href="index.html">
+      <span class="fp-logo__pulse"></span>
+      <span class="fp-logo__text">Fin<span>Pulse</span></span>
+    </a>
+    <div class="fp-nav-links">
+      <a href="index.html" class="fp-nav-link active"><i class="bi bi-plus-circle"></i> Entry</a>
+      <a href="dashboard.html" class="fp-nav-link"><i class="bi bi-grid-3x3-gap"></i> Dashboard</a>
+    </div>
+    <div class="fp-company-toggle">
+      <button class="toggle-btn active" data-type="edtech" id="toggleEdtech">
+        <i class="bi bi-mortarboard"></i> EdTech
+      </button>
+      <button class="toggle-btn" data-type="professional" id="togglePro">
+        <i class="bi bi-briefcase"></i> Professional
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="fp-hero">
+  <div class="fp-hero__eyebrow">
+    <span class="blink-dot"></span> LIVE TRACKING
+  </div>
+  <h1 class="fp-hero__title">
+    Track Every Rupee.<br />
+    <span class="gradient-text">Kill the Waste.</span>
+  </h1>
+  <p class="fp-hero__sub">
+    AI-powered expense intelligence that detects anomalies,<br />
+    flags overspending, and prescribes savings — automatically.
+  </p>
+  <div class="fp-hero__stats" id="heroStats">
+    <div class="hero-stat">
+      <div class="hero-stat__val" id="heroTotal">₹0</div>
+      <div class="hero-stat__label">Total Tracked</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat__val" id="heroCount">0</div>
+      <div class="hero-stat__label">Transactions</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat__val" id="heroAnomaly">0</div>
+      <div class="hero-stat__label">Anomalies</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MAIN CONTENT ── -->
+<main class="fp-main">
+  <div class="row g-4">
+
+    <!-- LEFT: EXPENSE FORM -->
+    <div class="col-lg-6">
+      <div class="fp-card">
+        <div class="fp-card__header">
+          <div class="fp-card__tag">NEW ENTRY</div>
+          <h2 class="fp-card__title">Log Expense</h2>
+        </div>
+        <div class="fp-card__body">
+
+          <!-- Category Pills -->
+          <div class="mb-4">
+            <label class="fp-label">Category</label>
+            <div class="cat-pills" id="categoryPills">
+              <!-- Populated by JS based on company type -->
+            </div>
+            <input type="hidden" id="category" value="" />
+          </div>
+
+          <!-- Amount -->
+          <div class="fp-field mb-3">
+            <label class="fp-label" for="amount">Amount (₹)</label>
+            <div class="fp-input-wrap">
+              <span class="fp-input-prefix">₹</span>
+              <input type="number" class="fp-input" id="amount"
+                     placeholder="0.00" min="1" step="0.01" />
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="fp-field mb-3">
+            <label class="fp-label" for="description">Description</label>
+            <input type="text" class="fp-input" id="description"
+                   placeholder="What was this expense for?" />
+          </div>
+
+          <!-- Vendor -->
+          <div class="fp-field mb-3">
+            <label class="fp-label" for="vendor">Vendor / Payee</label>
+            <input type="text" class="fp-input" id="vendor"
+                   placeholder="Who did you pay?" />
+          </div>
+
+          <!-- Date -->
+          <div class="fp-field mb-4">
+            <label class="fp-label" for="date">Date</label>
+            <input type="date" class="fp-input" id="date" />
+          </div>
+
+          <!-- Actions -->
+          <div class="d-flex gap-3">
+            <button class="fp-btn fp-btn--primary flex-fill" id="btnAddExpense">
+              <i class="bi bi-plus-lg me-2"></i>Add Expense
+            </button>
+            <button class="fp-btn fp-btn--ghost" id="btnLoadSample">
+              <i class="bi bi-database-up me-2"></i>Load Sample Data
+            </button>
+          </div>
+
+          <!-- Status toast -->
+          <div class="fp-toast" id="formToast"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: RECENT TRANSACTIONS -->
+    <div class="col-lg-6">
+      <div class="fp-card h-100">
+        <div class="fp-card__header">
+          <div class="fp-card__tag">RECENT</div>
+          <h2 class="fp-card__title">Transactions</h2>
+          <a href="dashboard.html" class="fp-card__action">
+            View Dashboard <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+        <div class="fp-card__body p-0">
+          <div id="transactionsList" class="tx-list">
+            <div class="tx-empty">
+              <i class="bi bi-inbox text-muted" style="font-size:2.5rem;"></i>
+              <p class="mt-3 text-muted">No transactions yet.<br/>Add your first expense above.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CATEGORY BREAKDOWN MINI-CHART -->
+  <div class="row g-4 mt-2">
+    <div class="col-12">
+      <div class="fp-card">
+        <div class="fp-card__header">
+          <div class="fp-card__tag">QUICK VIEW</div>
+          <h2 class="fp-card__title">Category Distribution</h2>
+          <a href="dashboard.html" class="fp-card__action">
+            Full Analytics <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+        <div class="fp-card__body">
+          <div id="miniCategoryBars" class="mini-bars">
+            <p class="text-muted small">Add expenses to see distribution</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ── CSV IMPORT MODAL ── -->
+<div class="fp-modal" id="sampleModal">
+  <div class="fp-modal__box">
+    <div class="fp-modal__header">
+      <span>Load Sample Data</span>
+      <button class="fp-modal__close" id="modalClose">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="fp-modal__body">
+      <p class="text-muted mb-3">
+        This will import <strong>46 sample transactions</strong> (EdTech + Professional Services)
+        into FinPulse for demonstration.
+      </p>
+      <div class="fp-alert fp-alert--warning mb-4">
+        <i class="bi bi-exclamation-triangle me-2"></i>
+        Ensure MongoDB is running and the Flask API is active on port 5000.
+      </div>
+      <div class="d-flex gap-3">
+        <button class="fp-btn fp-btn--primary flex-fill" id="btnConfirmLoad">
+          <i class="bi bi-check-lg me-2"></i>Confirm Import
+        </button>
+        <button class="fp-btn fp-btn--ghost" id="btnCancelLoad">Cancel</button>
+      </div>
+      <div class="mt-3" id="importProgress" style="display:none;">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="text-muted small mt-2" id="importStatus">Importing...</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="fp-modal-backdrop" id="modalBackdrop"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
