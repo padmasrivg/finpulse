@@ -301,7 +301,7 @@ def get_categories():
 @app.route('/')
 def home():
     return
-render_templates('index.html')    
+render_template('index.html')    
 app = app
 #if __name__ == "__main__":
   #  print("🚀 FinPulse API starting on http://localhost:5000")
